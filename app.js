@@ -52,18 +52,37 @@ getSubmitButton().addEventListener('click', (event) => {
 
     // Check if its within valid range
     if(!isWithinValidRange(val1)) {
-        getTextareaOutput().innerHTML = `Number 1 input ${val1} is not a number in valid range`;
+        getTextareaOutput().innerHTML = `Number 1 input ${val1} is not a number in valid range of 2 - 100`;
         getTextareaOutput().classList.add('text-danger');
         valid = false;
     }
 
     // Check if its within valid range
     if(!isWithinValidRange(val2)) {
-        getTextareaOutput().innerHTML += `\nNumber 2 input ${val2} is not a number in valid range`;
+        getTextareaOutput().innerHTML += `\nNumber 2 input ${val2} is not a number in valid range of 2 - 100`;
         getTextareaOutput().classList.add('text-danger');
         valid = false;
         return;
     }
 
+    // If all the inputs are valid, then show the correct output 
+    if(valid) {
+        // Determine the range of numbers
+        console.log(getNumberRange(val1, val2));
+    }
 })
+
+// Function to get the set of numbers between val1 and val2
+getNumberRange = (val1, val2) => {
+    let smallerNumber = (val1 > val2) ? val2 : val1;
+    let largerNumber = (val1 < val2) ? val2 : val1;
+
+    let list = [];
+    for(let i= smallerNumber; i <= largerNumber; i++)
+    {
+        list.push(i);
+    }
+
+    return list;
+}
 
