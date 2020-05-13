@@ -30,6 +30,8 @@ getSubmitButton().addEventListener('click', (event) => {
 
     // Clear the textarea
     getTextareaOutput().innerHTML = ``;
+    // Clear the styles
+    getTextareaOutput().classList.remove(...getTextareaOutput().classList);
 
     // Start by assuming inputs are valid
     let valid = true;
@@ -67,8 +69,10 @@ getSubmitButton().addEventListener('click', (event) => {
 
     // If all the inputs are valid, then show the correct output 
     if(valid) {
-        // Determine the range of numbers
-        console.log(getNumberRange(val1, val2));
+        // Determine the range of numbers and filter out only the even ones
+        let evenNumbers = getNumberRange(val1, val2).filter(x => x%2 == 0);
+        getTextareaOutput().innerHTML = `There are ${evenNumbers.length} even number(s): \n${evenNumbers}`;
+        getTextareaOutput().classList.add('text-info');
     }
 })
 
