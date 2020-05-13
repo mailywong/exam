@@ -17,3 +17,33 @@ body {
     font-size: 3em;
 }
 
+#numberInputForm {
+    margin-top: 2em;
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.input-container {
+    width: 50%;
+}
+
+.input-container label {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0.5em;;
+}
+
+.input-container input  {
+    width: 95%;
+    height: 2em;
+}
+
+#numberInputForm button {
+    margin-top: 2em;
+    display: block;
+    justify-content: left;
+    padding: 9px;
+    font-weight: bold;
+}
